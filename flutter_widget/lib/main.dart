@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:io';
 
 void main(List<String> args) {
   runApp(
@@ -16,7 +15,7 @@ class App extends StatelessWidget {
             appBar: AppBar(
                 title: Text('CoderTitan'),
             ),
-            body: AssetPicture(),
+            body: TextSpanMore(),
         ),
         theme: ThemeData(
             primarySwatch: Colors.blue
@@ -30,62 +29,60 @@ class Hello extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 414.0,
-      height: 500.0,
+      height: 300.0,
       color: Colors.green,
-      child: Image(
-        image: NetworkImage('https://titanjun.oss-cn-hangzhou.aliyuncs.com/flutter/flutter.jpeg?x-oss-process=style/titanjun'),
-        colorBlendMode: BlendMode.srcIn,
-        fit: BoxFit.scaleDown,
-        filterQuality: FilterQuality.medium,
-        alignment: Alignment.topLeft,
-      ),
+      child: Text(
+            // 需要显示的文字
+            'titanjun.top' * 3,
+            textAlign: TextAlign.left,
+            textDirection: TextDirection.ltr,
+            locale: Locale('CH'),
+            maxLines: 1,
+            overflow: TextOverflow.fade,
+            style: TextStyle(
+                inherit: true,
+                color: Colors.red,
+                fontSize: 50,
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.italic,
+                letterSpacing: 2,
+                wordSpacing: 5,
+                textBaseline: TextBaseline.alphabetic,
+                height: 2,
+                locale: Locale('CH'),
+                decoration: TextDecoration.lineThrough,
+                decorationColor: Colors.blue,
+                decorationStyle: TextDecorationStyle.wavy,
+            ),
+        ),
     );
   }
 }
 
-class NetworkPicture extends StatelessWidget {
+class TextSpanMore extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        width: 414.0,
-        height: 600.0,
-        color: Colors.orange,
-        child: Image.network(
-          'https://titanjun.oss-cn-hangzhou.aliyuncs.com/flutter/catimage.jpg',
-          fit: BoxFit.scaleDown,
-        )
-    );
-  }
-}
+    return Center(
+      child: Text.rich(
+            TextSpan(
+              text: '博客地址: ',
 
-class FilePicture extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        width: 414.0,
-        height: 600.0,
-        color: Colors.orange,
-        child: Image.file(
-          File("/Users/quanjunt⁩/⁩Downloads/catimage.jpg")
-        )
-    );
-  }
-}
-
-class AssetPicture extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        width: 414.0,
-        height: 600.0,
-        color: Colors.orange,
-        child: Image.asset(
-          'images/home.png',
-          width: 100,
-          height: 100,
-          fit: BoxFit.scaleDown,
-          alignment: Alignment.center,
-        )
+              children: [
+                TextSpan(
+                  text: 'https://',
+                  style: TextStyle(color: Colors.red, fontSize: 20)
+                ),
+                TextSpan(
+                  text: 'titanjun.top',
+                  style: TextStyle(color: Colors.blue, fontSize: 20),
+                ),
+                TextSpan(
+                  text: '欢迎访问',
+                  style: TextStyle(color: Colors.orange, fontSize: 30)
+                ),
+              ]
+            ),
+        ),
     );
   }
 }

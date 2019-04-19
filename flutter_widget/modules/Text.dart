@@ -62,11 +62,8 @@ class Hello extends StatelessWidget {
 class TextSpanMore extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        width: 414.0,
-        height: 300.0,
-        color: Colors.white30,
-        child: Text.rich(
+    return Center(
+      child: Text.rich(
             TextSpan(
               text: '博客地址: ',
               children: [
