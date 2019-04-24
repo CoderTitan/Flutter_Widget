@@ -69,7 +69,7 @@ class TextSpanMore extends StatelessWidget {
               children: [
                 TextSpan(
                   text: 'https://',
-                  style: TextStyle(color: Colors.red)
+                  style: TextStyle(color: Colors.red, fontWeight: FontWeight.w200)
                 ),
                 TextSpan(
                   text: 'titanjun.top',
