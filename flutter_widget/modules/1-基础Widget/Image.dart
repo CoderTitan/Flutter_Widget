@@ -16,7 +16,7 @@ class App extends StatelessWidget {
             appBar: AppBar(
                 title: Text('CoderTitan'),
             ),
-            body: AssetPicture(),
+            body: IconImage(),
         ),
         theme: ThemeData(
             primarySwatch: Colors.blue
@@ -90,10 +90,48 @@ class AssetPicture extends StatelessWidget {
   }
 }
 
+class IconImage extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    String iconStr = "";
+    // accessible: &#xE914; or 0xE914 or E914
+    iconStr += "\uE914";
+    // error: &#xE000; or 0xE000 or E000
+    iconStr += " \uE000";
+    // fingerprint: &#xE90D; or 0xE90D or E90D
+    iconStr += " \uE90D";
+
+    return Container(
+        width: 414.0,
+        height: 600.0,
+        color: Colors.orange,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            Icon(Icons.accessible, color:Colors.green, size: 80),
+            Icon(Icons.error, color:Colors.red, size: 80),
+            Icon(Icons.fingerprint, color:Colors.cyan, size: 80),
+            // Text(iconStr,
+            // style: TextStyle(
+            //     fontFamily: "MaterialIcons",
+            //     fontSize: 80.0,
+            //     color: Colors.green
+            // ),
+            // )
+          ],
+        )
+    );
+  }
+}
 
 
 
 
+// Icon(Icons.accessible, color:Colors.green, size: 80),
+            // Icon(Icons.backspace, color:Colors.red, size: 80),
+            // Icon(Icons.cached, color:Colors.yellow, size: 80),
+            // Icon(Icons.dashboard, color:Colors.cyan, size: 80),
 
 
 

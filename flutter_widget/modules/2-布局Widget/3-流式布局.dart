@@ -69,7 +69,7 @@ class FlowWidget extends StatelessWidget {
 }
 
 class ShowFlowDelegate extends FlowDelegate {
-  EdgeInsets margin =EdgeInsets.zero;
+  EdgeInsets margin = EdgeInsets.zero;
   ShowFlowDelegate({this.margin});
 
   @override
