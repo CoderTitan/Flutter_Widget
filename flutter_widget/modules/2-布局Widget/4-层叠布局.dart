@@ -56,25 +56,25 @@ class PositionedHello extends StatelessWidget {
       width: 414.0,
       height: 500.0,
       color: Colors.orange,
-child: Stack(
-  alignment: AlignmentDirectional.center,
-  children: <Widget>[
-    // 这个widget会根据alignment的设置展示
-    Container(child: Text('https', style: TextStyle(color: Colors.red)), color: Colors.yellow,),
-    // 这个widget会根据left和top和width的设置显示和alignment无关了
-    Positioned(
-      left: 10,
-      top: 30,
-      width: 80,
-      child: Container(width: 100.0, height:100.0, color: Colors.red),
-    ),
-    Positioned(
-      right: 10,
-      bottom: 50,
-      child: Container(width: 100.0, height:100.0, color: Colors.blue),
-    )
-  ],
-),
+      child: Stack(
+        alignment: AlignmentDirectional.center,
+        children: <Widget>[
+          // 这个widget会根据alignment的设置展示
+          Container(child: Text('https', style: TextStyle(color: Colors.red)), color: Colors.yellow,),
+          // 这个widget会根据left和top和width的设置显示和alignment无关了
+          Positioned(
+            left: 10,
+            top: 30,
+            width: 80,
+            child: Container(width: 100.0, height:100.0, color: Colors.red),
+          ),
+          Positioned(
+            right: 10,
+            bottom: 50,
+            child: Container(width: 100.0, height:100.0, color: Colors.blue),
+          )
+        ],
+      ),
     );
   }
 }
