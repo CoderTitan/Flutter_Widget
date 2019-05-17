@@ -3,67 +3,23 @@ import 'package:flutter/cupertino.dart';
 
 
 
-void main(List<String> args) => runApp(NewApp());
+void main(List<String> args) => runApp(MyApp());
 
-class NewApp extends StatefulWidget {
-
-  @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return App();
-  }
-}
-
-class App extends State<NewApp> {
-
-  int _selectIndex = 0;
-
+class MyApp extends StatelessWidget {
+  ScrollController _controller = ScrollController();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-          appBar: AppBar(
-            title: Text('CoderTitan'),
-          ),
-          body: Home(),
-          bottomNavigationBar: BottomNavigationBar(
-            items: <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: (Icon(Icons.home)),
-                title: Text('首页'),
-                activeIcon: Icon(Icons.add_to_home_screen),
-                backgroundColor: Colors.blue
-              ),
-              BottomNavigationBarItem(
-                icon: (Icon(Icons.person)),
-                title: Text('首页'),
-                activeIcon: Icon(Icons.person_outline),
-                backgroundColor: Colors.blue
-              )
-            ],
-            currentIndex: _selectIndex,
-            onTap: _onItemTapped,
-            type: BottomNavigationBarType.fixed,
-          ),
+            // 设置导航栏
+            appBar: AppBar(
+                title: Text('CoderTitan1'),
+            ),
+            body: Text('data'),
         ),
-    );
-  }
-
-  void _onItemTapped(int index) {
-    setState() {
-      _selectIndex = index;
-    }
-  }
-}
-
-class Home extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 414,
-      height: 600,
-      color: Colors.grey[200],
-      child: Text('data')
+        theme: ThemeData(
+            primarySwatch: Colors.blue
+        ),
     );
   }
 }
