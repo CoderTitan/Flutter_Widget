@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:new_flutter/douban/pages/home/model/home_model.dart';
+import 'package:new_flutter/douban/component/start_rank.dart';
+import 'package:new_flutter/douban/component/dashed_line.dart';
 
 class MovieCell extends StatelessWidget {
 
@@ -49,15 +51,21 @@ class MovieCell extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        ClipRRect(
-          borderRadius: BorderRadius.circular(4),
-          child: Image.network(model.imageURL, height: 150),
-        ),
+        buildHeaderImage(),
         SizedBox(width: 8),
         bundleMoviewInfo(),
         SizedBox(width: 8),
+        buildDashLine(),
+        SizedBox(width: 8),
         bundleLook()
       ],
+    );
+  }
+
+  Widget buildHeaderImage() {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(4),
+      child: Image.network(model.imageURL, height: 150),
     );
   }
 
@@ -73,24 +81,9 @@ class MovieCell extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text.rich(
-            TextSpan(
-              children: [
-                WidgetSpan(
-                  child: Icon(Icons.play_circle_outline, color: Colors.red, size: 30,),
-                  alignment: PlaceholderAlignment.middle
-                ),
-                WidgetSpan(
-                  child: Text(model.title, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)), 
-                  alignment: PlaceholderAlignment.middle
-                ),
-                WidgetSpan(
-                  child: Text('(${model.playDate})', style: TextStyle(fontSize: 14, color: Colors.grey)), 
-                  alignment: PlaceholderAlignment.middle
-                ),
-              ]
-            )
-          ),
+          buildTitle(),
+          SizedBox(height: 8),
+          StartRank(rating: model.rating, size: 20,),
           SizedBox(height: 8),
           Text(
             "$genresString / $directorString / $actorString",
@@ -99,6 +92,41 @@ class MovieCell extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
         ],
+      ),
+    );
+  }
+
+  Widget buildTitle() {
+    return Text.rich(
+      TextSpan(
+        children: [
+          WidgetSpan(
+            child: Icon(Icons.play_circle_outline, color: Colors.red, size: 30,),
+            alignment: PlaceholderAlignment.middle
+          ),
+          WidgetSpan(
+            child: Text(model.title, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)), 
+            alignment: PlaceholderAlignment.middle
+          ),
+          WidgetSpan(
+            child: Text('(${model.playDate})', style: TextStyle(fontSize: 14, color: Colors.grey)), 
+            alignment: PlaceholderAlignment.middle
+          ),
+        ]
+      )
+    );
+  }
+
+  // 虚线部分
+  Widget buildDashLine() {
+    return Container(
+      height: 100,
+      child: DashedLine(
+        axis: Axis.vertical,
+        width: 0.5,
+        height: 3,
+        color: Colors.green,
+        count: 20,
       ),
     );
   }
