@@ -4,7 +4,7 @@ import 'package:new_flutter/provider/view_model/config_view_model.dart';
 import 'package:new_flutter/provider/view_model/user_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:new_flutter/provider/store_provider/store_provider.dart';
-import 'provider/view_model/count_view_model.dart';
+import 'package:new_flutter/provider/view_model/count_view_model.dart';
 
 
 
